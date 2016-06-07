@@ -11,7 +11,7 @@ class WalmartCategoryRepo
     end
   end
 
-  def self.gather_ids
+  def self.category_ids
     Category.pluck(:id)
   end
 
