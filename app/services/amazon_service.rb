@@ -9,7 +9,8 @@ class AmazonService
     url << Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     signature = create_signature(url)
-    connection.get(signature)
+    x = connection.get(signature)
+    Crack::XML.parse(x.body)["ItemLookupResponse"]["Items"]["Item"]
   end
 
   private
