@@ -3,5 +3,4 @@ Rails.application.routes.draw do
 
   get "/auth/amazon", as: :amazon_login
   get "/auth/amazon/callback", to: "sessions#create"
-
 end
