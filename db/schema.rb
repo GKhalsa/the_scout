@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160611030920) do
+ActiveRecord::Schema.define(version: 20160611210919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20160611030920) do
     t.string   "lowest_amazon_price"
     t.string   "quantity_new"
     t.string   "salesrank"
+    t.float    "profit"
+    t.float    "profit_margin"
   end
 
   create_table "users", force: :cascade do |t|
