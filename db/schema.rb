@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610000732) do
+ActiveRecord::Schema.define(version: 20160611030920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "amazon_items", force: :cascade do |t|
+    t.string   "url"
+    t.string   "lowest_new_price"
+    t.string   "quantity_new"
+    t.string   "sales_rank"
+    t.string   "upc"
+    t.string   "prime"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
