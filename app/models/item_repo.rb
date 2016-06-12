@@ -46,7 +46,7 @@ class ItemRepo
         if index == num
           upcs_for_api_call = upcs.join(",")
           amazon_hashes = amazon_service.get_items(upcs_for_api_call)
-          sleep(1)
+          sleep(0.5)
           store_amazon_items_in_database(amazon_hashes)
           items = []
           upcs = []
@@ -66,7 +66,8 @@ class ItemRepo
           quantity_new: hash["OfferSummary"]["TotalNew"],
           sales_rank: hash["SalesRank"],
           upc: hash["ItemAttributes"]["UPC"],
-          prime: hash["Offers"]["Offer"]["OfferListing"]["IsEligibleForPrime"]
+          prime: hash["Offers"]["Offer"]["OfferListing"]["IsEligibleForPrime"],
+          title: hash["ItemAttributes"]["Title"]
           # image_url: hash["ImageSets"]["ImageSet"].first["MediumImage"]["URL"]
           )
         rescue
@@ -78,7 +79,7 @@ class ItemRepo
   def self.add_amazon_data_to_walmart_item
     Item.all.each do |item|
       amazon_attributes = AmazonItem.all.find do |amazon_item|
-        (amazon_item.upc == item.upc) && (amazon_item.prime == "1") && (!amazon_item.url.include?("Pack"))
+        (amazon_item.upc == item.upc) && (amazon_item.prime == "1") && (!amazon_item.url.include?("Pack")) && (!amazon_item.title.include?("Pack"))
       end
 
       unless amazon_attributes.nil?

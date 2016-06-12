@@ -14,7 +14,7 @@ class AmazonService
       Crack::XML.parse(response.body)["ItemLookupResponse"]["Items"]["Item"] unless response.nil?
     rescue
       puts "sleepytime"
-      sleep(2)
+      sleep(3)
     end
   end
 
