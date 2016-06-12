@@ -35,4 +35,9 @@ class ItemAnalyst
     profitable_items.sort_by {|item| item.profit_margin}.reverse
   end
 
+  def self.add_profitability_attributes
+    add_to_profit_attribute
+    add_profit_margin
+  end
+
 end
