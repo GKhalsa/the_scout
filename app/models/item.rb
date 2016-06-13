@@ -27,9 +27,9 @@ class Item < ActiveRecord::Base
   end
 
   def formatted_name
-    new_name = self.name[0..45]
+    new_name = self.name[0..65]
     return new_name if new_name.length == self.name.length
-    return new_name + "..." if new_name.length < self.name.length 
+    return new_name + "..." if new_name.length < self.name.length
   end
 
 end

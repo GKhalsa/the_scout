@@ -1,0 +1,82 @@
+<%#= link_to "login with amazon", amazon_login_path %>
+
+  <nav class="navbar navbar-light bg-faded">
+    <ul class="nav navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Pricing</a>
+      </li>
+      <li class="nav-item pull-xs-right">
+        <a class="nav-link" href="#">Login</a>
+      </li>
+    </ul>
+  </nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Sort By</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/margin">Margin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profit">Profit</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/salesrank">Salesrank</a>
+        </li>
+      </ul>
+    <br/><br/>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Saved Items</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-sm-9 col-md-10">
+    <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Walmart Price</th>
+        <th>Lowest Amazon Price</th>
+        <th>Salesrank</th>
+        <th>Profit</th>
+        <th>Margin</th>
+        <th>Walmart link</th>
+        <th>Amazon link</th>
+      </tr>
+    </thead>
+    <% @items.each do |item| %>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td> <%=  item.formatted_name %></td>
+        <td>$<%=  item.formatted_walmart_price %></td>
+        <td>$<%=  item.formatted_amazon_price %></td>
+        <td> <%=  item.formatted_salesrank %></td>
+        <td>$<%=  item.formatted_profit %></td>
+        <td> <%=  item.formatted_margin %>%</td>
+        <td> <%=  link_to "Walmart", item.productUrl %></td>
+        <td> <%=  link_to "Amazon", item.amazon_url %></td>
+        <td>save</td>
+      </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+  </div>
+</div>
