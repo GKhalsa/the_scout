@@ -6,10 +6,10 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link disabled" href="#">Features</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link disabled" href="#">Pricing</a>
       </li>
       <li class="nav-item pull-xs-right">
         <a class="nav-link" href="#">Login</a>
@@ -21,23 +21,30 @@
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-pills nav-stacked">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Another link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Sort By</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Margin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profit</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Salesrank</a>
+        </li>
+      </ul>
+    <br/><br/>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Saved Items</a>
+        </li>
       </ul>
     </div>
-<!-- <Item id: nil, name: nil, salePrice: nil, upc: nil, stock: nil, availableOnline: nil,
- created_at: nil, updated_at: nil, amazon_url: nil, lowest_amazon_price: nil, quantity_new: nil, salesrank: nil,
-  profit: nil, profit_margin: nil, mediumImage: nil, productUrl: nil, amazon_image: nil> -->
+
     <div class="col-sm-9 col-md-10">
     <table class="table">
     <thead>
@@ -57,27 +64,15 @@
     <tbody>
       <tr>
         <th scope="row">1</th>
-        <td><%= item.name %></td>
+        <td><%= item.formatted_name %></td>
         <td>$<%= item.formatted_walmart_price %></td>
         <td>$<%= item.formatted_amazon_price %></td>
         <td><%= item.formatted_salesrank %></td>
-        <td>$<%= item.profit %></td>
+        <td>$<%= item.formatted_profit %></td>
         <td><%= item.formatted_margin %>%</td>
         <td><%= link_to "Walmart", item.productUrl %></td>
         <td><%= link_to "Amazon", item.amazon_url %></td>
       </tr>
-      <!-- <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        </tr> -->
       </tbody>
       <% end %>
     </table>

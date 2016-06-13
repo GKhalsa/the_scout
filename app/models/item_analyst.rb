@@ -19,11 +19,11 @@ class ItemAnalyst
   end
 
   def self.calculate_margin(item)
-    begin
+    # begin
       profit = calculate_profit(item)
       margin = (profit/(item.lowest_amazon_price.to_i / 100.0)).round(2)
-    rescue
-    end
+    # rescue
+    # end
   end
 
   def self.profitable_items
