@@ -35,25 +35,38 @@
       </li>
       </ul>
     </div>
-
+<!-- <Item id: nil, name: nil, salePrice: nil, upc: nil, stock: nil, availableOnline: nil,
+ created_at: nil, updated_at: nil, amazon_url: nil, lowest_amazon_price: nil, quantity_new: nil, salesrank: nil,
+  profit: nil, profit_margin: nil, mediumImage: nil, productUrl: nil, amazon_image: nil> -->
     <div class="col-sm-9 col-md-10">
     <table class="table">
     <thead>
       <tr>
         <th>#</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Username</th>
+        <th>Name</th>
+        <th>Walmart Price</th>
+        <th>Lowest Amazon Price</th>
+        <th>Salesrank</th>
+        <th>Profit</th>
+        <th>Margin</th>
+        <th>Walmart link</th>
+        <th>Amazon link</th>
       </tr>
     </thead>
+    <% @items.each do |item| %>
     <tbody>
       <tr>
         <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td><%= item.name %></td>
+        <td>$<%= item.formatted_walmart_price %></td>
+        <td>$<%= item.formatted_amazon_price %></td>
+        <td><%= item.formatted_salesrank %></td>
+        <td>$<%= item.profit %></td>
+        <td><%= item.formatted_margin %>%</td>
+        <td><%= link_to "Walmart", item.productUrl %></td>
+        <td><%= link_to "Amazon", item.amazon_url %></td>
       </tr>
-      <tr>
+      <!-- <tr>
         <th scope="row">2</th>
         <td>Jacob</td>
         <td>Thornton</td>
@@ -64,8 +77,9 @@
         <td>Larry</td>
         <td>the Bird</td>
         <td>@twitter</td>
-        </tr>
+        </tr> -->
       </tbody>
+      <% end %>
     </table>
   </div>
   </div>

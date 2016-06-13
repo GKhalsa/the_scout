@@ -9,7 +9,7 @@ class ItemRepo
   end
 
   def self.all
-    WalmartCategoryRepo.category_ids.take(1).map do |category_id|
+    WalmartCategoryRepo.category_ids.map do |category_id|
       full_item_hash = service.get_items({ category: category_id })
       item_grabber(full_item_hash)
     end.flatten!
@@ -46,7 +46,7 @@ class ItemRepo
         if index == num
           upcs_for_api_call = upcs.join(",")
           amazon_hashes = amazon_service.get_items(upcs_for_api_call)
-          sleep(0.5)
+          sleep(1)
           store_amazon_items_in_database(amazon_hashes)
           items = []
           upcs = []
@@ -79,7 +79,7 @@ class ItemRepo
   def self.add_amazon_data_to_walmart_item
     Item.all.each do |item|
       amazon_attributes = AmazonItem.all.find do |amazon_item|
-        (amazon_item.upc == item.upc) && (amazon_item.prime == "1") && (!amazon_item.url.include?("Pack")) && (!amazon_item.title.include?("Pack"))
+        (amazon_item.upc == item.upc) && (amazon_item.prime == "1") && (!amazon_item.url.downcase.include?("pack")) && (!amazon_item.title.downcase.include?("pack")) && (!amazon_item.title.downcase.include?("pk")) && (!amazon_item.title.downcase.include?("quantity"))
       end
 
       unless amazon_attributes.nil?

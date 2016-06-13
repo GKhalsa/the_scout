@@ -19,8 +19,11 @@ class ItemAnalyst
   end
 
   def self.calculate_margin(item)
-    profit = calculate_profit(item)
-    margin = (profit/(item.lowest_amazon_price.to_f / 100)).round(2)
+    begin
+      profit = calculate_profit(item)
+      margin = (profit/(item.lowest_amazon_price.to_i / 100.0)).round(2)
+    rescue
+    end
   end
 
   def self.profitable_items
@@ -28,7 +31,11 @@ class ItemAnalyst
   end
 
   def self.calculate_profit(item)
-    profit = ((item.lowest_amazon_price.to_f / 100) - item.salePrice).round(2)
+    begin
+      profit = ((item.lowest_amazon_price.to_i / 100.0) - item.salePrice).round(2)
+    rescue
+      Item.find(item.id).destroy
+    end
   end
 
   def self.ordered_profitability
