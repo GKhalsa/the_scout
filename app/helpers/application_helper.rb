@@ -48,5 +48,13 @@ module ApplicationHelper
     items.count % 50 != 0 ? items.count/50 + 1 : items.count/50
   end
 
+  def right_arrow(items, page)
+     page == determine_count(items) ? determine_count(items) : page + 1
+  end
+
+  def left_arrow(page)
+    page == 1 ? 1 : page-1
+  end
+
 
 end

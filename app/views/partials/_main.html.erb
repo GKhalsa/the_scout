@@ -48,7 +48,7 @@
       <nav>
         <ul class="pagination">
           <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
+            <a class="page-link" href="<%= path %>?page=<%= left_arrow(@page) %>" aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
               <span class="sr-only">Previous</span>
             </a>
@@ -57,7 +57,7 @@
           <li class="page-item"><a class="page-link" href="/<%= path %>?page=<%= n + 1 %>"> <%= n + 1 %></a></li>
           <% end %>
           <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
+            <a class="page-link" href="/<%= path %>?page=<%=right_arrow(@all_items, @page)%>" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
               <span class="sr-only">Next</span>
             </a>
