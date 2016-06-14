@@ -1,6 +1,6 @@
 class MarginController < ApplicationController
   def index
-    @items = ItemAnalyst.ordered_profitability
+    current_user ? @items = ItemAnalyst.ordered_profitability : @items = []
     render "welcome/index.html.erb"
   end
 end

@@ -1,5 +1,3 @@
-<%#= link_to "login with amazon", amazon_login_path %>
-
   <nav class="navbar navbar-light bg-faded">
     <ul class="nav navbar-nav">
       <li class="nav-item active">
@@ -12,7 +10,7 @@
         <a class="nav-link disabled" href="#">Pricing</a>
       </li>
       <li class="nav-item pull-xs-right">
-        <a class="nav-link" href="#">Login</a>
+        <%= login_or_logout%>
       </li>
     </ul>
   </nav>
@@ -40,7 +38,7 @@
           <a class="nav-link active" href="#">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Saved Items</a>
+          <a class="nav-link" href="/saved">Saved Items</a>
         </li>
       </ul>
     </div>
@@ -64,15 +62,15 @@
     <tbody>
       <tr>
         <th scope="row">1</th>
-        <td> <%=  item.formatted_name %></td>
-        <td>$<%=  item.formatted_walmart_price %></td>
-        <td>$<%=  item.formatted_amazon_price %></td>
-        <td> <%=  item.formatted_salesrank %></td>
-        <td>$<%=  item.formatted_profit %></td>
-        <td> <%=  item.formatted_margin %>%</td>
+        <td> <%=  formatted_name(item) %></td>
+        <td>$<%=  formatted_walmart_price(item) %></td>
+        <td>$<%=  formatted_amazon_price(item) %></td>
+        <td> <%=  formatted_salesrank(item) %></td>
+        <td>$<%=  formatted_profit(item) %></td>
+        <td> <%=  formatted_margin(item) %>%</td>
         <td> <%=  link_to "Walmart", item.productUrl %></td>
         <td> <%=  link_to "Amazon", item.amazon_url %></td>
-        <td>save</td>
+        <td> <%=  link_to "Save", saved_item_path(item: item), method: :post, class: "btn btn-secondary" %></td>
       </tr>
       </tbody>
       <% end %>

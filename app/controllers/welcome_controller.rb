@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    @items = ItemAnalyst.ordered_profitability
+    current_user ? @items = ItemAnalyst.ordered_profitability : @items = []
   end
 
 end

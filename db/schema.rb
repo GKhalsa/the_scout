@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612184641) do
+ActiveRecord::Schema.define(version: 20160613232503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,28 @@ ActiveRecord::Schema.define(version: 20160612184641) do
     t.string   "amazon_image"
   end
 
+  create_table "saved_items", force: :cascade do |t|
+    t.string   "name"
+    t.float    "salePrice"
+    t.string   "upc"
+    t.string   "stock"
+    t.boolean  "availableOnline"
+    t.string   "amazon_url"
+    t.string   "lowest_amazon_price"
+    t.string   "quantity_new"
+    t.string   "salesrank"
+    t.float    "profit"
+    t.float    "profit_margin"
+    t.string   "mediumImage"
+    t.string   "productUrl"
+    t.string   "amazon_image"
+    t.integer  "user_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "saved_items", ["user_id"], name: "index_saved_items_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "uid"
     t.string   "email"
@@ -66,4 +88,5 @@ ActiveRecord::Schema.define(version: 20160612184641) do
     t.datetime "updated_at",    null: false
   end
 
+  add_foreign_key "saved_items", "users"
 end

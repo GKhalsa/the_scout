@@ -1,5 +1,5 @@
 class SalesrankController < ApplicationController
   def index
-    @items = ItemAnalyst.ordered_by_salesrank
+  current_user ? @items = ItemAnalyst.ordered_by_salesrank : @items = []
   end
 end

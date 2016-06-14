@@ -1,0 +1,21 @@
+<%= render partial: "partials/nav_without_items" %>
+<% @items.each do |item| %>
+        <tbody>
+          <tr>
+          <th scope="row">1</th>
+          <td> <%=  formatted_name(item) %></td>
+          <td>$<%=  formatted_walmart_price(item) %></td>
+          <td>$<%=  formatted_amazon_price(item) %></td>
+          <td> <%=  formatted_salesrank(item) %></td>
+          <td>$<%=  formatted_profit(item) %></td>
+          <td> <%=  formatted_margin(item) %>%</td>
+          <td> <%=  link_to "Walmart", item.productUrl %></td>
+          <td> <%=  link_to "Amazon", item.amazon_url %></td>
+          <td> <%=  link_to "Remove", delete_saved_item_path(id: item), method: :delete, class: "btn btn-secondary" %></td>
+          </tr>
+        </tbody>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

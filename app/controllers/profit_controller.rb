@@ -1,7 +1,7 @@
 class ProfitController < ApplicationController
 
   def index
-    @items = ItemAnalyst.ordered_by_profit
+    current_user ? @items = ItemAnalyst.ordered_by_profit : @items = []
   end
 
 end
