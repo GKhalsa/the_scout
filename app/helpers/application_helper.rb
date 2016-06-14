@@ -40,5 +40,9 @@ module ApplicationHelper
     return new_name + "..." if new_name.length < item.name.length
   end
 
+  def export_csv_in_saved_items(items)
+    link_to "Export to CSV", csv_path, class: "btn btn-danger-outline" if !items.empty?
+  end
+
 
 end

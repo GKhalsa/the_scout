@@ -16,8 +16,7 @@
         </tbody>
       <% end %>
       </table>
+      <h3><%= export_csv_in_saved_items(@items) %></h3>
     </div>
   </div>
 </div>
-
-<h3><%= link_to "Export to CSV", csv_path %></h3>
