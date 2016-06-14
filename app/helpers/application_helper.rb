@@ -44,5 +44,9 @@ module ApplicationHelper
     link_to "Export to CSV", csv_path, class: "btn btn-danger-outline" if !items.empty?
   end
 
+  def determine_count(items)
+    items.count % 50 != 0 ? items.count/50 + 1 : items.count/50
+  end
+
 
 end

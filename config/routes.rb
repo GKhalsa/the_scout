@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'margin#index'
 
   get "/auth/amazon", as: :amazon_login
   get "/auth/amazon/callback", to: "sessions#create"
@@ -14,4 +14,12 @@ Rails.application.routes.draw do
   delete "/saved_item", to: "saved_item#destroy", as: :delete_saved_item
 
   get "/csv", to: "csv#index", as: :csv
+
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      get "/profitable_items", to: "profitable_items#index"
+    end
+  end
+
+  get ":type/:page_num", to: "welcome#index", as: :page
 end

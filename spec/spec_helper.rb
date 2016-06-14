@@ -14,6 +14,14 @@
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
+require 'vcr'
+# See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+VCR.configure do |c|
+  c.cassette_library_dir = "spec/cassettes"
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+  c.allow_http_connections_when_no_cassette = true
+end
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

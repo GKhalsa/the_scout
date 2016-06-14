@@ -24,4 +24,16 @@ class ApplicationController < ActionController::Base
     send_file './saved_items.csv', :type => 'csv', :disposition => 'attachment'
   end
 
+  def pagination(array, page)
+    if page == 0 || page == 1
+      top = 0
+      bottom = 50
+      current_user ? @items = array[top..bottom] : @items = []
+    else
+      top = ((page * 50) - 50) + 1
+      bottom = (page * 50) + 1
+      current_user ? @items = array[top..bottom] : @items = []
+    end
+  end
+
 end
