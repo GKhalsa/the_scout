@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   post "/saved_item", to: "saved_item#create", as: :saved_item
   get "/saved", to: "saved_item#index", as: :saved_items
   delete "/saved_item", to: "saved_item#destroy", as: :delete_saved_item
+
+  get "/csv", to: "csv#index", as: :csv
 end
