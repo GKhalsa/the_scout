@@ -91,7 +91,7 @@
         <td> <%=  formatted_margin(item) %>%</td>
         <td> <%=  link_to "Walmart", item.productUrl %></td>
         <td> <%=  link_to "Amazon", item.amazon_url %></td>
-        <td> <%=  link_to "Save", saved_item_path(item: item), method: :post, class: "btn btn-secondary" %></td>
+        <td id="save" data-id="<%= item.id %>"><button class="btn btn-secondary">Save</button></td>
       </tr>
       </tbody>
       <% end %>

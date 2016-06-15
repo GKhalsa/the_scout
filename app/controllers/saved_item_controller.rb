@@ -1,4 +1,4 @@
-class SavedItemController < ApplicationController
+class SavedItemController < Api::ApiController
 
   def create
     attributes = Item.find(params["item"]).attributes

@@ -1,0 +1,4 @@
+.btn:focus {
+  background: white;
+  outline: none;
+}
