@@ -89,7 +89,9 @@
         <td> <%=  formatted_salesrank(item) %></td>
         <td>$<%=  formatted_profit(item) %></td>
         <td> <%=  formatted_margin(item) %>%</td>
-        <td> <%=  link_to "Walmart", item.productUrl %></td>
+        <!-- <td id="p1"> <%=  link_to "Walmart", item.productUrl %></td> -->
+        <!-- <td><a href="<%= item.productUrl %>">Walmart</a></td> -->
+        <td><a class="tiptext" href="<%= item.productUrl %>">Walmart</a></td>
         <td> <%=  link_to "Amazon", item.amazon_url %></td>
         <td id="save" data-id="<%= item.id %>"><button class="btn btn-secondary">Save</button></td>
       </tr>
