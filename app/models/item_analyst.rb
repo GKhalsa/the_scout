@@ -18,25 +18,9 @@ class ItemAnalyst
     end
   end
 
-  # def self.calculate_margin(item)
-  #   # begin
-  #     profit = calculate_profit(item)
-  #     margin = (profit/(item.lowest_amazon_price.to_i / 100.0)).round(2)
-  #   # rescue
-  #   # end
-  # end
-
   def self.profitable_items
     successfully_matched_items.all.select { |item| item.profit > 0 }
   end
-
-  # def self.calculate_profit(item)
-  #   begin
-  #     profit = ((item.lowest_amazon_price.to_i / 100.0) - item.salePrice).round(2)
-  #   rescue
-  #     Item.find(item.id).destroy
-  #   end
-  # end
 
   def self.ordered_profitability
     profitable_items.sort_by {|item| item.profit_margin}.reverse

@@ -14,5 +14,5 @@
 
 # Ignore application configuration
 /config/application.yml
-/spec/cassettes/*
 /coverage
+/spec/cassettes

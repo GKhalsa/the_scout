@@ -9,7 +9,7 @@ class ItemRepo
   end
 
   def self.all
-    WalmartCategoryRepo.category_ids.take(3).map do |category_id|
+    WalmartCategoryRepo.category_ids.take(1).map do |category_id|
       full_item_hash = service.get_items({ category: category_id })
       item_grabber(full_item_hash)
     end.flatten!
@@ -81,7 +81,6 @@ class ItemRepo
       amazon_attributes = AmazonItem.all.find do |amazon_item|
         (amazon_item.upc == item.upc) && (amazon_item.prime == "1") && (!amazon_item.url.downcase.include?("pack")) && (!amazon_item.title.downcase.include?("pack")) && (!amazon_item.title.downcase.include?("pk")) && (!amazon_item.title.downcase.include?("quantity"))
       end
-
       unless amazon_attributes.nil?
             item.update(
                    amazon_url: amazon_attributes.url,
