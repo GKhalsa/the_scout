@@ -1,2 +1,2 @@
 id,name,salePrice,upc,stock,availableOnline,amazon_url,lowest_amazon_price,quantity_new,salesrank,profit,profit_margin,mediumImage,productUrl,amazon_image,user_id,created_at,updated_at
-163,knex2,2.0,12,2,true,www.2.com,2,2,2,2.0,2.0,www.21.com,www.22.com,www.244.com,618,2016-06-16 05:26:28 UTC,2016-06-16 05:26:28 UTC
+166,knex2,2.0,12,2,true,www.2.com,2,2,2,2.0,2.0,www.21.com,www.22.com,www.244.com,627,2016-06-16 05:49:46 UTC,2016-06-16 05:49:46 UTC
