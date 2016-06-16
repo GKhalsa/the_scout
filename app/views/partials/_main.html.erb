@@ -54,7 +54,7 @@
             </a>
           </li>
           <% determine_count(@all_items).times do |n| %>
-          <li class="page-item"><a class="page-link" href="/<%= path %>?page=<%= n + 1 %>"> <%= n + 1 %></a></li>
+          <li class="page-item"><a class="page-link <%= n + 1 %>" href="/<%= path %>?page=<%= n + 1 %>"> <%= n + 1 %></a></li>
           <% end %>
           <li class="page-item">
             <a class="page-link" href="/<%= path %>?page=<%=right_arrow(@all_items, @page)%>" aria-label="Next">
@@ -81,7 +81,7 @@
     </thead>
     <% @items.each do |item| %>
     <tbody>
-      <tr>
+      <tr class="item-row">
         <th scope="row">1</th>
         <td> <%=  formatted_name(item) %></td>
         <td>$<%=  formatted_walmart_price(item) %></td>
@@ -91,7 +91,7 @@
         <td> <%=  formatted_margin(item) %>%</td>
         <td> <%=  link_to "Walmart", item.productUrl %></td>
         <td> <%=  link_to "Amazon", item.amazon_url %></td>
-        <td id="save" data-id="<%= item.id %>"><button class="btn btn-secondary">Save</button></td>
+        <td id="save" data-id="<%= item.id %>" class="saved"><button class="btn btn-secondary">Save</button></td>
       </tr>
       </tbody>
       <% end %>
