@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'margin#index'
+  # root 'margin#index'
+  root 'signup#index'
 
   get "/auth/amazon", as: :amazon_login
   get "/auth/amazon/callback", to: "sessions#create"
