@@ -9,7 +9,7 @@ class ItemRepo
   end
 
   def self.all
-    WalmartCategoryRepo.category_ids.map do |category_id|
+    WalmartCategoryRepo.category_ids.take(5).map do |category_id|
       full_item_hash = service.get_items({ category: category_id })
       item_grabber(full_item_hash)
     end.flatten!

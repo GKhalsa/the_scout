@@ -1,5 +1,7 @@
   $(document).on('click', '#save', function(e) {
-    var id = $(this).data('id')
+    var itemName = $(this).parent().children(':nth-child(2)').html();
+    flashMessage(itemName);
+    var id = $(this).data('id');
       $.ajax({
           dataType: 'json',
           method:'POST',
@@ -7,3 +9,6 @@
           data: {item: id}
       });
   });
+
+  function flashMessage(itemName){
+  }

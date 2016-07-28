@@ -4,6 +4,7 @@ class SavedItemController < Api::ApiController
     attributes = Item.find(params["item"]).attributes
     filtered_attributes = filter(attributes)
     current_user.saved_items.create(filtered_attributes)
+    flash.now[:info] = "#{attributes["name"]} has been saved"
     redirect_to root_path
   end
 
