@@ -5,7 +5,10 @@ profits by sifting through tens of thousands of items that would normally requir
 human interaction. Ruby, Rails, PostgreSQL, RSpec, API Consumption, API creation,
 Caching, Heroku, AJAX, jQuery, Bootstrap.
 
-Production: `www.oascout.com`
+Production: `www.oascout.com`  
+
+[![IMAGE ALT TEXT HERE](http://i.imgur.com/k8rlfFZ.png)](https://www.youtube.com/watch?v=jlp7bXvxDNM)
+
 
 ## Getting Started
 
